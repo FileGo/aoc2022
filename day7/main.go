@@ -74,8 +74,6 @@ func main() {
 			// Command
 			if strings.Contains(line, "cd") {
 				dir := strings.Replace(line, "$ cd ", "", -1)
-				//fmt.Printf("[%d] Commanded dir: %s\n", i, dir)
-
 				if dir == ".." {
 					if currentDir == "/" {
 						continue
@@ -144,14 +142,7 @@ func main() {
 				allFsEntries = append(allFsEntries, &newEntry)
 			}
 		}
-
-		//fmt.Printf("[%d] Dir: %s\n", i, currentDir)
 	}
-
-	/*for _, fsEntry := range allFsEntries {
-		fmt.Println("--------")
-		fmt.Printf("Name: %s\nAbsolute path: %s\nType: %d\nSize: %d\n", fsEntry.name, fsEntry.absolutePath, fsEntry.fileType, fsEntry.size)
-	}*/
 
 	sortByName(allFsEntries)
 
@@ -177,7 +168,6 @@ func main() {
 
 	// Part 2
 	fmt.Println("Part 2")
-
 	sortBySize(allFsEntries)
 
 	for _, fsEntry := range allFsEntries {
@@ -189,5 +179,4 @@ func main() {
 			}
 		}
 	}
-
 }
